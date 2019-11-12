@@ -5,7 +5,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = 'b_5#y2L"F4Q8z/n\xec]/'
+    SECRET = 'b_5#y2L"F4Q8z/n\xec]/'
     TEMPLATE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
     APP = None
@@ -15,7 +15,7 @@ class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
     IP_HOST = 'localhost'
-    PORT_HOST = 8000
+    PORT_HOST = 8081
     URL_MAIN = 'http://%s:%s/' % (IP_HOST, PORT_HOST)
 
 class TestingConfig(Config):
@@ -37,5 +37,8 @@ app_config = {
     'testing': TestingConfig(),
     'production': ProductionConfig()
 }
-app_active = os.getenv('FLASK_ENV')
+
+#app_active = os.getenv('FLASK_ENV') aqui é para passar a variável de ambiente no 
+app_active = 'development'
+
 
